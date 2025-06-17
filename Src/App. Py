@@ -1,0 +1,61 @@
+import pandas as pd
+from jinja2 import Template
+import argparse
+import os
+
+def generate_report(habits_path, tracker_path, template_path, output_path):
+    try:
+        main_data = pd.read_csv(habits_path)
+        daily_tracker = pd.read_csv(tracker_path)
+        daily_tracker_rows = daily_tracker.to_dict('records')
+        
+        with open(template_path, 'r') as file:
+            template = Template(file.read())
+        
+        output = template.render(
+            month=main_data['month'][0],
+            primary_goal=main_data['primary_goal'][0],
+            why=main_data['why'][0],
+            habit1=main_data['habit1'][0],
+            habit2=main_data['habit2'][0],
+            habit3=main_data['habit3'][0],
+            week=main_data['week'][0],
+            what_worked=main_data['what_worked'][0],
+            challenges=main_data['challenges'][0],
+            improvement_plan=main_data['improvement_plan'][0],
+            habit1_rating=main_data['habit1_rating'][0],
+            habit2_rating=main_data['habit2_rating'][0],
+            habit3_rating=main_data['habit3_rating'][0],
+            achievement=main_data['achievement'][0],
+            reward=main_data['reward'][0],
+            note_date=main_data['note_date'][0],
+            note=main_data['note'][0],
+            small_win1=main_data['small_win1'][0],
+            small_win2=main_data['small_win2'][0],
+            small_win3=main_data['small_win3'][0],
+            start_date=main_data['start_date'][0],
+            completion_date=main_data['completion_date'][0],
+            signature=main_data['signature'][0],
+            daily_tracker=daily_tracker_rows
+        )
+        
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, 'w') as file:
+            file.write(output)
+            
+        print(f"✅ Report generated: {output_path}")
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error: {str(e)}")
+        return False
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Habit Tracker Pro')
+    parser.add_argument('--habits', default='data/habits.csv')
+    parser.add_argument('--tracker', default='data/daily_tracker.csv')
+    parser.add_argument('--template', default='src/templates/habit_tracker_template.txt')
+    parser.add_argument('--output', default='reports/weekly_report.md')
+    
+    args = parser.parse_args()
+    generate_report(args.habits, args.tracker, args.template, args.output)
