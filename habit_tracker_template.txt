@@ -1,0 +1,33 @@
+# Habit Tracker - {{ month }}
+
+## Primary Goal: {{ primary_goal }}
+### Why: {{ why }}
+
+- Habit 1: {{ habit1 }} (Rating: {{ habit1_rating }})
+- Habit 2: {{ habit2 }} (Rating: {{ habit2_rating }})
+- Habit 3: {{ habit3 }} (Rating: {{ habit3_rating }})
+
+### Week: {{ week }}
+- What worked: {{ what_worked }}
+- Challenges: {{ challenges }}
+- Plan: {{ improvement_plan }}
+
+### Achievements: {{ achievement }}
+- Reward: {{ reward }}
+
+### Notes on {{ note_date }}: {{ note }}
+
+## Small Wins:
+- {{ small_win1 }}
+- {{ small_win2 }}
+- {{ small_win3 }}
+
+## Daily Tracker:
+{% for row in daily_tracker %}
+- {{ row.date }}: {{ row.habit1_status }}, {{ row.habit2_status }}, {{ row.habit3_status }}
+{% endfor %}
+
+## Timeline:
+- Start: {{ start_date }}
+- Completion: {{ completion_date }}
+- Signature: {{ signature }}
