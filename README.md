@@ -1,96 +1,96 @@
-# Habit Tracker Generator
-
-Generate a weekly habit tracking report using:
-- Data from CSV files
-- A Jinja2 Markdown template
-
-## 🛠 Files
-- `main.py`: Main script
-- `habits.csv`: Personal habit goals and reflections
-- `daily_tracker.csv`: Daily habit tracking
-- `habit_tracker_template.txt`: Jinja2 Markdown template
-- `habit_tracker_output.md`: Generated output (run `main.py`)
-
-## ▶ How to Run
-1. Install Python and Jinja2:
-   ```bash
-   pip install jinja2
-   ```
-2. Run the script:
-   ```bash
-   python main.py
-   ```
-3. Output will be saved in `habit_tracker_output.md`
-4. 
 # 📊 Habit Tracker Generator
 
-> Generate beautiful weekly habit tracking reports from CSV data using Python & Jinja2 — created entirely on **Android with Pydroid3** 📱.
-
-![Output Preview](https://github.com/Madaraathuk/Habit-tracker-pro-app/raw/main/screenshot.png)
+أداة ذكية وسهلة الاستخدام لتوليد تقارير تتبع العادات اليومية باستخدام ملفات CSV وقالب Jinja2.
 
 ---
 
-## ✨ Features
+## ⚙️ الوظيفة الأساسية
 
-- 📁 Reads from `habits.csv` and `daily_tracker.csv`
-- 🧠 Uses **Jinja2 templates** to generate Markdown reports
-- 📆 Tracks weekly progress with notes, small wins, and ratings
-- ⚡ Built entirely **on mobile using Pydroid3**
+يقوم هذا المشروع بقراءة ملفين:
+- `habits.csv`: يحتوي على معلومات العادات الشخصية (مثل العادات والأشهر).
+- `daily_tracker.csv`: يحتوي على تتبع يومي لتلك العادات.
+
+ثم يستخدم قالب `habit_tracker_template.txt` لتوليد تقرير Markdown جذاب يحتوي على بيانات التتبع اليومية بشكل منظم.
 
 ---
 
-## 🧪 How to Run
+## 📁 بنية الملفات
 
-1. **Install Jinja2:**
-```bash
-pip install jinja2
+```
+📂 المشروع
+│
+├── main.py                        # الكود الأساسي لتوليد التقرير
+├── habits.csv                    # نموذج بيانات العادات (مدخل)
+├── daily_tracker.csv            # نموذج تتبع يومي (مدخل)
+├── habit_tracker_template.txt   # قالب Jinja2 للتقرير
+├── habit_tracker_output.md      # الناتج النهائي (تقرير Markdown)
+└── README.md                    # ملف التوثيق (أنت تقرأه الآن)
 ```
 
-2. **Run the script:**
+---
+
+## ✅ كيفية الاستخدام
+
+1. تأكد من وجود الملفات التالية في نفس المجلد:
+   - `habits.csv`
+   - `daily_tracker.csv`
+   - `habit_tracker_template.txt`
+
+2. شغّل الملف `main.py`:
+
 ```bash
 python main.py
 ```
 
-3. The result will be saved in: `habit_tracker_output.md`
+3. سيتم إنشاء تقرير باسم `habit_tracker_output.md`.
 
 ---
 
-## 📌 Demo Output
+## 📝 ملاحظات هامة
 
-```markdown
-# Habit Tracker - June
-- Goal: Improve health
-- Habit 1: Exercise (Rating: 5)
-...
+- يجب أن يحتوي `habits.csv` على عمود باسم `month`.
+- يجب أن يحتوي `daily_tracker.csv` على الأعمدة التالية:  
+  `date`, `habit1`, `habit2`, `habit3`, `notes`
+- في حالة وجود بيانات ناقصة أو تنسيق غير صحيح، سيتم عرض رسائل خطأ توضيحية.
+
+---
+
+## 🌟 مثال عملي
+
+```csv
+# habits.csv
+month,habit1,habit2,habit3
+June,Reading,Meditation,Workout
+
+# daily_tracker.csv
+date,habit1,habit2,habit3,notes
+2025-06-01,✔️,❌,✔️,Good start
+2025-06-02,✔️,✔️,❌,Need more focus
 ```
 
 ---
 
-## 📦 Files
+## 🧰 المتطلبات
 
-- `main.py` — Main script
-- `habits.csv` — Weekly goals and progress
-- `daily_tracker.csv` — Day-by-day habit tracking
-- `habit_tracker_template.txt` — Jinja2 template
-- `habit_tracker_output.md` — Final result
-- `README.md` — This file
+- Python 3.7+
+- المكتبات:
+  - `pandas`
+  - `jinja2`
 
----
+لتثبيتها:
 
-## 🛠 Built With
-
-- [Pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3)
-- Python 3
-- Jinja2
+```bash
+pip install pandas jinja2
+```
 
 ---
 
-## 🙋‍♂️ Author
+## 🧠 الفائدة من الأداة
 
-Made with ❤️ by [@Madaraathuk](https://github.com/Madaraathuk)
+هذه الأداة مثالية لرواد الإنتاجية، والطلاب، والمدربين، وكل من يسعى لمتابعة عاداته اليومية بطريقة منظمة وتلقائية، مع إمكانية تعديل القالب ليظهر التقرير بشكل شخصي واحترافي.
 
 ---
 
-## 🪪 License
+## ✨ الترخيص
 
-This project is licensed under the MIT License.
+مشروع مفتوح المصدر لاستخدامك الشخصي أو التجاري. يمكنك تعديله بحرية.
